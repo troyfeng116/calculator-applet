@@ -1,0 +1,23 @@
+/* calculator.css */
+
+body {
+	background-color:gainsboro;
+}
+h1 {
+	color:green;
+	background-color:black;
+}
+#res,#buttonsContainer {
+	width:500px;
+}
+.numButtons {
+	background-color:gray;
+}
+.button {
+	width:22%;
+	height:60px;
+	border:solid;
+	border-width:1px;
+	margin:1px;
+	font-size:36px;
+}
