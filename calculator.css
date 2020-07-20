@@ -13,10 +13,17 @@ h1 {
 }
 #res {
 	width:500px;
-	background-color:lightgray;
+	background-color:white;
 	border:solid;
 	height:60px;
 	font-size:30px;
+}
+#exp {
+	width:500px;
+	background-color:lightgray;
+	border:double;
+	height:30px;
+	font-size:20px;
 }
 
 /* Button styling */
