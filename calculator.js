@@ -1,12 +1,14 @@
 var res = document.getElementById("res");
 var expDisplay = document.getElementById("exp");
-var ac = false;
-var justDisplayedAnswer = false;
-var justDisplayedEqual = false;
-var ans = 0;
-var chunk = 1;
-var curPM = '#';
-var curMD = '#';
+
+var ac = false; /* ac is true when clear button is in AC mode (i.e. all cancel) and 
+				 * false when in simple C mode (clear). */
+var justDisplayedAnswer = false; /* If res contains an intermediate answer, justDisplayedAnswer flips to true. */
+var justDisplayedEqual = false; /* If equal button just pressed, justDisplayedEqual flips to true. */
+var ans = 0; /* Overall answer thus far. */
+var chunk = 1; /* Value of chained multiplication/division. */
+var curPM = '#'; /* Previously encountered + or - operator. If none, set to #. */
+var curMD = '#'; /* Previously encountered * or / operator. If none, set to #. */
 
 var numButtons = document.getElementsByClassName("numButtons");
 for (var i = 0, len = numButtons.length; i < len; i++) {
@@ -26,8 +28,8 @@ for (var i = 0, len = numButtons.length; i < len; i++) {
     		ac = false;
     		clearButton.innerHTML = 'C';
     	}
-    	appendToExpDisplay(x);
-    	appendToResDisplay(x);
+    	appendToExp(x);
+    	appendToRes(x);
     }
 }
 
@@ -35,7 +37,7 @@ var opButtons = document.getElementsByClassName("opButtons");
 for (var i = 0, len = opButtons.length; i < len; i++) {
 	let op = opButtons[i].innerHTML;
 	opButtons[i].onclick = function() {
-		appendToExpDisplay(op);
+		appendToExp(op);
 		opClicked(op);
 	}
 }
@@ -61,9 +63,10 @@ clearButton.onclick = function() {
 	clearRes();
 }
 
+/* NOTE that decimal functionality not supported yet. */
 var decimalButton = document.getElementById("btnDec");
 decimalButton.onclick = function() {
-	appendToExpDisplay(decimalButton.innerHTML);
+	appendToExp(decimalButton.innerHTML);
 }
 
 var equalsButton = document.getElementById("btnEql");
@@ -76,25 +79,13 @@ equalsButton.onclick = function() {
 	clearButton.innerHTML = "AC";
 }
 
-function displayAnsSoFar() {
-	res.innerHTML = ans;
-}
-
-function displayChunkSoFar() {
-	res.innerHTML = chunk;
-}
-
-function appendToExpDisplay(x) {
-	expDisplay.innerHTML += x;
-}
-
-function appendToResDisplay(x) {
-	res.innerHTML += x;
-}
-
 function opClicked(newOp) {
 	var thisTerm = res.innerHTML;
 	var x = parseInt(thisTerm,10);
+	if (x == NaN) {
+		displayError();
+		return;
+	}
 	if (justDisplayedEqual) {
 		justDisplayedEqual = false;
 		if (newOp=='+' || newOp=='-') {
@@ -113,27 +104,18 @@ function opClicked(newOp) {
 	else if (curMD=='/') chunk /= x;
 	else if (curMD=='#') chunk = x;
 
-	if (newOp=='+' || newOp=='-') {
+	if (newOp=='+' || newOp=='-' || newOp=='=') {
 		if (curPM == '+') ans += chunk;
 		else if (curPM == '-') ans -= chunk;
 		else if (curPM == '#') ans = chunk;
 		displayAnsSoFar();
 		chunk = 1;
-		curPM = newOp;
+		curPM = newOp=='='? '#' : newOp;
 		curMD = '#';
 	}
 	else if (newOp=='*' || newOp=='/') {
 		displayChunkSoFar();
 		curMD = newOp;
-	}
-	else if (newOp=='=') {
-		if (curPM == '+') ans += chunk;
-		else if (curPM == '-') ans -= chunk;
-		else if (curPM == '#') ans = chunk;	
-		displayAnsSoFar();
-		chunk = 1;
-		curPM = '#';
-		curMD = '#';
 	}
 	justDisplayedAnswer = true;
 }
@@ -146,17 +128,22 @@ function clearExp() {
 	expDisplay.innerHTML = "";
 }
 
+function displayAnsSoFar() {
+	res.innerHTML = ans;
+}
+
+function displayChunkSoFar() {
+	res.innerHTML = chunk;
+}
+
+function appendToExp(x) {
+	expDisplay.innerHTML += x;
+}
+
+function appendToRes(x) {
+	res.innerHTML += x;
+}
+
 function displayError() {
-	res.innerHTML = "Invalid input";
-}
-
-function removeLastNum(exp) {
-	var reg = /(\+)|(\*)|-|(\/)/;
-	var i = exp.lastIndexOf(reg);
-	return i>=0 ? exp.substring(0,i+1) : "";
-}
-
-function eval(exp) {
-	displayError();
-	justDisplayedAnswer = true;
+	res.innerHTML = "Invalid input, press C to clear";
 }
