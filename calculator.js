@@ -55,9 +55,7 @@ clearButton.onclick = function() {
 		curMD = '#';
 		return;
 	}
-	var r = res.innerHTML.length;
-	var len = expDisplay.innerHTML.length;
-	expDisplay.innerHTML = expDisplay.innerHTML.substring(0,len-r);
+	expDisplay.innerHTML = removeLastNum(expDisplay.innerHTML);
 	ac = true;
 	clearButton.innerHTML = "AC";
 	clearRes();
@@ -72,7 +70,7 @@ decimalButton.onclick = function() {
 var equalsButton = document.getElementById("btnEql");
 equalsButton.onclick = function() {
 	opClicked('=');
-	expDisplay.innerHTML = ans;
+	appendToExp('='+ans);
 	displayAnsSoFar();
 	justDisplayedEqual = true;
 	ac = true;
@@ -88,6 +86,8 @@ function opClicked(newOp) {
 	}
 	if (justDisplayedEqual) {
 		justDisplayedEqual = false;
+		expDisplay.innerHTML = x;
+		appendToExp(newOp);
 		if (newOp=='+' || newOp=='-') {
 			curPM=newOp;
 			ansSoFar = x;
@@ -118,6 +118,11 @@ function opClicked(newOp) {
 		curMD = newOp;
 	}
 	justDisplayedAnswer = true;
+}
+
+function removeLastNum(exp) {
+	var i = Math.max(exp.lastIndexOf('+'), exp.lastIndexOf('-'), exp.lastIndexOf('*'), exp.lastIndexOf('/'));
+	return i>=0? exp.substring(0,i+1) : "";
 }
 
 function clearRes() {

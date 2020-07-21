@@ -4,7 +4,8 @@ body {
 }
 h1 {
 	color:limegreen;
-	background-color:black;
+	background-color:gray;
+	text-align:center;
 }
 
 /* Div containters for buttons and result display */
