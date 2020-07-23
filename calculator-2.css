@@ -3,50 +3,14 @@ body {
 	background-color:gainsboro;
 }
 h1 {
-	color:green;
-}
-
-/* Menu bar styling */
-#menubar {
-	list-style-type:none;
-	margin:10;
-	padding:0;
+	color:limegreen;
 	background-color:gray;
-	overflow:hidden;
-	width:100%;
-}
-#menubar li {
-	display:inline;
-	float:left;
-	border-right:1px solid white;
-}
-#menubar li:last-child {
-	border-right:none;
-}
-#menubar a {
-	display:block;
-	background-color:lightgreen;
-	padding:14px 16px;
-	text-decoration:none;
-	color:brown;
 	text-align:center;
 }
-#menubar a:hover {
-	background-color:black;
-	color:limegreen;
-}
-#menubar .active {
-	background-color:darkgreen;
-	color:white;
-}
 
-/* Div containers for expression and result display */
-#exp {
+/* Div containters for buttons and result display */
+#buttonsContainer {
 	width:500px;
-	background-color:lightgray;
-	border:double;
-	height:30px;
-	font-size:20px;
 }
 #res {
 	width:500px;
@@ -55,11 +19,15 @@ h1 {
 	height:60px;
 	font-size:30px;
 }
+#exp {
+	width:500px;
+	background-color:lightgray;
+	border:double;
+	height:30px;
+	font-size:20px;
+}
 
 /* Button styling */
-#buttonsContainer {
-	width:500px;
-}
 #buttonsContainer > button {
 	width:25%;
 	height:60px;
