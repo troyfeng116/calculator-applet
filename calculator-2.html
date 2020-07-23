@@ -12,12 +12,38 @@
 
 	<h1>Calculator Applet</h1>
 
-	<div id="exp"> </div>
+	<div>
+		<ul id="menubar">
+			<li><a href="calculator.html">Calculator 1</a></li>
+			<li><a href="calculator-2.html" class="active">Calculator 2</a></li>
+			<li><a href="calculator-3.html">Calculator 3</a></li>
+		</ul>
+	</div>
 
-	<div id="res"> </div>
+	<div id="exp" class="calculator"> </div>
 
-	<div id="buttonsContainer">
-		<button>
+	<div id="res" class="calculator"> </div>
+
+	<div id="buttonsContainer" class="calculator">
+		<button id="btn7" class="numButtons">7</button>
+		<button id="btn8" class="numButtons">8</button>
+		<button id="btn9" class="numButtons">9</button>
+		<button id="btnDiv" class="opButtons">/</button>
+
+		<button id="btn4" class="numButtons">4</button>
+		<button id="btn5" class="numButtons">5</button>
+		<button id="btn6" class="numButtons">6</button>
+		<button id="btnMul" class="opButtons">*</button>
+
+		<button id="btn1" class="numButtons">1</button>
+		<button id="btn2" class="numButtons">2</button>
+		<button id="btn3" class="numButtons">3</button>
+		<button id="btnSub" class="opButtons">-</button>
+
+		<button id="btn0" class="numButtons">0</button>
+		<button id="btnClr" class="otherButtons">C</button>
+		<button id="btnEql" class="otherButtons">=</button>
+		<button id="btnSum" class="opButtons">+</button>
 
 		<script src="calculator.js" type="text/javascript"></script>
 	</div>
