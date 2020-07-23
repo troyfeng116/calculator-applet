@@ -62,10 +62,10 @@ clearButton.onclick = function() {
 }
 
 /* NOTE that decimal functionality not supported yet. */
-var decimalButton = document.getElementById("btnDec");
+/*var decimalButton = document.getElementById("btnDec");
 decimalButton.onclick = function() {
 	appendToExp(decimalButton.innerHTML);
-}
+}*/
 
 var equalsButton = document.getElementById("btnEql");
 equalsButton.onclick = function() {
