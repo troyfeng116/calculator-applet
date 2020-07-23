@@ -1,0 +1,93 @@
+/* Main body text elements */
+body {
+	background-color:gainsboro;
+}
+h1 {
+	color:green;
+}
+
+/* Menu bar styling */
+#menubar {
+	list-style-type:none;
+	margin:10;
+	padding:0;
+	background-color:gray;
+	overflow:hidden;
+	width:100%;
+}
+#menubar li {
+	display:inline;
+	float:left;
+	border-right:1px solid white;
+}
+#menubar li:last-child {
+	border-right:none;
+}
+#menubar a {
+	display:block;
+	background-color:lightgreen;
+	padding:14px 16px;
+	text-decoration:none;
+	color:brown;
+	text-align:center;
+}
+#menubar a:hover {
+	background-color:black;
+	color:limegreen;
+}
+#menubar .active {
+	background-color:darkgreen;
+	color:white;
+}
+
+/* Div containers for expression and result display */
+#exp {
+	width:500px;
+	background-color:lightgray;
+	border:double;
+	height:30px;
+	font-size:20px;
+}
+#res {
+	width:500px;
+	background-color:white;
+	border:solid;
+	height:60px;
+	font-size:30px;
+}
+
+/* Button styling */
+#buttonsContainer {
+	width:500px;
+}
+#buttonsContainer > button {
+	width:25%;
+	height:60px;
+	margin:0px;
+	font-size:30px;
+	float:left;
+}
+.opButtons {
+	background-color:gray;
+	color:white;
+}
+.numButtons {
+	background-color:lightgreen;
+	color:brown;
+}
+.topThreeButtons {
+	background-color:darkgreen;
+	color:white;
+}
+.otherButtons {
+	background-color:black;
+	color:lightgreen;
+}
+
+/* Footer styling */
+#footerbox {
+	position:absolute;
+	bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
