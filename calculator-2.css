@@ -8,19 +8,47 @@ h1 {
 	text-align:center;
 }
 
+/* Menu bar styling */
+#menubar {
+	list-style-type:none;
+	width:200px;
+	margin:0;
+	padding:0;
+	border:1px solid;
+	height:100%;
+	background-color:gray;
+}
+#menubar li {
+	line-height:50px;
+}
+#menubar a {
+	display:block;
+	text-decoration:none;
+	background-color:lightblue;
+	color:brown;
+	text-align:center;
+}
+#menubar a:hover {
+	background-color:pink;
+	color:blue;
+}
+#menubar .active {
+	background-color:darkblue;
+	color:white;
+}
+
 /* Div containters for buttons and result display */
-#buttonsContainer {
+.calculator {
 	width:500px;
+	margin-left:50%;
 }
 #res {
-	width:500px;
 	background-color:white;
 	border:solid;
 	height:60px;
 	font-size:30px;
 }
 #exp {
-	width:500px;
 	background-color:lightgray;
 	border:double;
 	height:30px;
@@ -42,10 +70,6 @@ h1 {
 .numButtons {
 	background-color:lightgreen;
 	color:brown;
-}
-.topThreeButtons {
-	background-color:darkgreen;
-	color:white;
 }
 .otherButtons {
 	background-color:black;
