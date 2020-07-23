@@ -67,6 +67,10 @@ h1 {
 	font-size:30px;
 	float:left;
 }
+#buttonsContainer > button:not(.topThreeButtons):hover {
+	background-color:white;
+	color:red;
+}
 .opButtons {
 	background-color:gray;
 	color:white;
@@ -78,6 +82,9 @@ h1 {
 .topThreeButtons {
 	background-color:darkgreen;
 	color:white;
+	/* Since parentheses and % have not been implemented, these buttons are grayed out for now. */
+  	opacity: 0.6; 
+  	cursor: not-allowed;
 }
 .otherButtons {
 	background-color:black;
