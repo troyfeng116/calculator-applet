@@ -1,11 +1,6 @@
 /* Main body text elements */
 body {
-	background-color:gainsboro;
-}
-h1 {
-	color:limegreen;
-	background-color:gray;
-	text-align:center;
+	background-color:white;
 }
 
 /* Menu bar styling */
@@ -20,60 +15,80 @@ h1 {
 }
 #menubar li {
 	line-height:50px;
+	font-size:25px;
 }
 #menubar a {
 	display:block;
 	text-decoration:none;
-	background-color:lightblue;
-	color:brown;
-	text-align:center;
+	background-color:gray;
+	color:gold;
+	text-align:czenter;
 }
 #menubar a:hover {
-	background-color:pink;
-	color:blue;
+	background-color:lightgray;
+	color:red;
 }
 #menubar .active {
-	background-color:darkblue;
-	color:white;
+	background-color:black;
+	color:gold;
 }
 
-/* Div containters for buttons and result display */
-.calculator {
+/* Div containters for calculator display */
+#calculator {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
 	width:500px;
-	margin-left:50%;
+}
+#exp {
+	background-color:gray;
+	color:white;
+	border:solid 1px;
+	height:30px;
+	font-size:20px;
+	text-align:right;
 }
 #res {
 	background-color:white;
-	border:solid;
+	border:solid 1px;
 	height:60px;
-	font-size:30px;
+	font-size:40px;
+	text-align:right;
 }
-#exp {
-	background-color:lightgray;
-	border:double;
-	height:30px;
-	font-size:20px;
+#buttonsContainer {
+	background-color:gainsboro;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows:60px 60px 60px 60px;
+	grid-gap:10px;
+	padding:10px;
 }
 
 /* Button styling */
-#buttonsContainer > button {
-	width:25%;
-	height:60px;
-	margin:0px;
+#buttonsContainer button {
 	font-size:30px;
-	float:left;
+}
+#btnEql {
+	grid-row:2/5;
+	grid-column:5/6;
+	height:100%;
+}
+#buttonsContainer > button:hover {
+	background-color:white;
+	color:red;
 }
 .opButtons {
-	background-color:gray;
-	color:white;
+	background-color:black;
+	color:orange;
 }
 .numButtons {
-	background-color:lightgreen;
-	color:brown;
+	background-color:darkgray;
+	color:gold;
 }
 .otherButtons {
-	background-color:black;
-	color:lightgreen;
+	background-color:gray;
+	color:white;
 }
 
 /* Footer styling */
