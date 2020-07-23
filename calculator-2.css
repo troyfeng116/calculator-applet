@@ -41,11 +41,12 @@ body {
 	left:50%;
 	transform: translate(-50%, -50%);
 	width:500px;
+	border:solid;
 }
 #exp {
 	background-color:gray;
 	color:white;
-	border:solid 1px;
+	border:double;
 	height:30px;
 	font-size:20px;
 	text-align:right;
@@ -56,6 +57,7 @@ body {
 	height:60px;
 	font-size:40px;
 	text-align:right;
+	font-family:Orbitron;
 }
 #buttonsContainer {
 	background-color:gainsboro;
@@ -68,6 +70,7 @@ body {
 
 /* Button styling */
 #buttonsContainer button {
+	font-family:Orbitron;
 	font-size:30px;
 	border-radius:12px;
 }
